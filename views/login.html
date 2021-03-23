@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/core.css">
+  <link rel="stylesheet" href="/public/css/register.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main-container">
+
+    <form class="form-module" method="post">
+
+      <header>Login</header>
+
+      <div class="form-body">
+
+        <div class="fill-up">
+          <input name="email" type="email" placeholder="Email" required>
+          <input name="password" type="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit">Submit</button>
+      </div>
+      <footer>
+        {{ login_err }}
+      </footer>
+    </form>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+body {
+  display: table;
+}
+
+.main-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.form-module {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.form-module header {
+  text-align: center;
+  font-size: 1.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.form-module .form-body {
+  padding: 0.5rem;
+}
+
+.form-module .form-body .fill-up {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-module .form-body .fill-up input {
+  width: 15rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-color: #333;
+  border-width: 0.075rem;
+  border-radius: 0.25rem;
+}
+
+.form-module .form-body .fill-up input:focus {
+  outline: none;
+}
+
+.form-module .form-body .fill-up input::-webkit-input-placeholder {
+  font-family: Quicksand, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-module .form-body button {
+  margin: 0 auto;
+  display: block;
+  width: 15rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.125rem;
+  color: #fff;
+  background-color: #3b3b3b;
+  font-family: Quicksand, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+}
+
+.form-module footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.125rem 0.75rem;
+}

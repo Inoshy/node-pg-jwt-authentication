@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  height: 100%; 
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #f6f6f6; 
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  display: none; 
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.main-container {
+  max-width: 420px; 
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media(min-width:768px) {
+  .main-container {
+    max-width: 768px;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
+@media(min-width:1024px) {
+  .main-container {
+    max-width: 1024px;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+  }
+}
+
+@media(min-width:1280px) {
+  .main-container {
+    max-width: 1280px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+

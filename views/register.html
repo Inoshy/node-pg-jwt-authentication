@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/core.css">
+  <link rel="stylesheet" href="/public/css/register.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="main-container">
+
+    <div class="form-module">
+
+      <header>Register</header>
+
+      <form class="form-body" method="POST">
+
+        <div class="fill-up">
+          <input name="name" type="text" placeholder="Username" required>
+          <input name="email" type="email" placeholder="Email" required>
+          <input name="password" type="password" placeholder="Password" required>
+          <input name="password2" type="password" placeholder="Re-type Password" required>
+        </div>
+
+        <button>Submit</button>
+
+      </form>
+
+      {% if validation_err %}
+      <footer> {{ validation_err }} </footer>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <script>
+    
+  </script>
+
+</body>
+
+</html>
