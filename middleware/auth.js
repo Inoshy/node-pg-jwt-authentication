@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const is_auth = (req, res, next) => {
+module.exports.is_auth = (req, res, next) => {
   const token = req.cookies.jwt
   if (token) {
     jwt.verify(token, 'inodeska', (err, decoded_token) => {
@@ -20,7 +20,7 @@ const is_auth = (req, res, next) => {
   }
 }
 
-const require_control = (req, res, next) => {
+module.exports.require_control = (req, res, next) => {
   const token = req.cookies.jwt
   if (token) {
     jwt.verify(token, 'inodeska', (err, decoded_token) => {
@@ -39,4 +39,3 @@ const require_control = (req, res, next) => {
   }
 }
 
-module.exports = { is_auth, require_control }
