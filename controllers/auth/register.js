@@ -20,22 +20,26 @@ module.exports.post = async (req, res) => {
     validation_err = 'Error occured on our end! Please try later!'
     res.send('register.html', { validation_err })
   }
+
   // If email is already registered, show error message
   if (check_existing_email.rowCount > 0) {
     validation_err = 'Email already registered!'
     res.render('register.html', { validation_err: validation_err })
   } else {
     let hashed_password
+
     // Hash password
     try {
       hashed_password = await bcrypt.hash(password, 10)
     } catch (err) {
       // If hashing fails, show error message
       validation_err = 'Error Occured! Please try later!'
+
       // Re-render the page after delay
       setTimeout(() => {
         res.render('register.html', { validation_err })
       }, 3000)
+
       // Early exit from function
       return
     }
