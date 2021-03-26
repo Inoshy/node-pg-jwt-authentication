@@ -26,4 +26,10 @@ router.use('/user/control', (req, res, next) => {
 
 router.get('/user/control', controller.panel.get)
 
+router.use('/user/logout', (req, res, next) => {
+  middleware.logout_is_auth(req, res, next)
+})
+
+router.get('/user/logout', controller.logout.get)
+
 module.exports = router

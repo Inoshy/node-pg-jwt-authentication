@@ -1,14 +1,47 @@
 const db = require('../db/config')
+const jwt = require('jsonwebtoken')
 
 module.exports.get_home = async (req, res) => {
-  try {
-    const fetch_users = await db.query('SELECT name FROM users')
-    res.render('index.html', {
-      all_user: fetch_users.rows
-    })
-  } catch (err) {
-    console.log(err)
+  token = req.cookies.jwt
+  if (token) {
+    // Retrieve user id from decoded token
+    user_id = jwt.decode(token).user_id
+    let retrieve_user
+    let data_retrieve_error = ''
+
+    // Try to retrieve user fromm database with id
+    try {
+      retrieve_user = await db.query('SELECT name FROM users WHERE id = $1', [
+        user_id
+      ])
+    } catch (err) {
+      // If connection fails, show error
+      data_retrieve_error = 'Error retrieving data'
+
+      // Then render homepage
+      res.render('index.html', { data_retrieve_error })
+
+      // Early exit from function
+      return
+    }
+
+    if (retrieve_user.rowCount > 0) {
+      // If user exists, get name from database
+      const username = retrieve_user.rows[0].name
+
+      // Render homepage and pass user data
+      res.render('index.html', { username })
+    } else {
+      // If user is deleted from database
+      // while logged in, clear jwt cookie
+      res.clearCookie('jwt')
+
+      // Redirect them to register page
+      res.redirect('/user/register')
+    }
+  } else {
+    // If token doesn't exist, show
+    // homepage but don't pass user data
+    res.render('index.html')
   }
 }
-
-module.exports.post_home = (req, res) => {}
