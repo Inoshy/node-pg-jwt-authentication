@@ -60,7 +60,7 @@ module.exports.post = async (req, res) => {
     res.render('register.html', { validation_err })
   }
 
-  // If username or email is unavailable
+  // If username or email are taken
   if (check_existing.rowCount > 0) {
     validation_err = 'Email or Username already registered!'
 
