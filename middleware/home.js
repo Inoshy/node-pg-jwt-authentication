@@ -9,9 +9,10 @@ module.exports.token_validate = (req, res, next) => {
         // Clear jwt cookie
         res.clearCookie('jwt')
       } else {
-        // If verification successful,
-        // Pass decoded token via http
-        req.decoded_token = decoded_token
+        // If verification successful, Set
+        // decoded token on response object
+        // res.locals doc: http://expressjs.com/en/api.html#res.locals
+        res.locals.decoded_token = decoded_token
       }
     })
   }
